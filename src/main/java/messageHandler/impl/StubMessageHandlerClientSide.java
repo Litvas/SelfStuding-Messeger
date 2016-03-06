@@ -11,12 +11,19 @@ public class StubMessageHandlerClientSide implements MessageHandlerClientSide {
     StubMessageHandlerServerSide stubMessageHandlerServerSide = new StubMessageHandlerServerSide();
 
     @Override
-    public void getMessageFromClient() {
+    public String getMessageFromClient() {
+        return convertMessage();
+    }
+
+    private String convertMessage() {
+        System.out.println("Please enter you message!");
         Scanner scanner = new Scanner(System.in);
         String messageFromClient = scanner.nextLine();
         sendMessageToServer(messageFromClient, "Unnamed");
         scanner.close();
+        return messageFromClient;
     }
+
 
     @Override
     public void sendMessageToServer(String messageFromClient, String nameOfReceiver) {
