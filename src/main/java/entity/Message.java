@@ -6,15 +6,13 @@ import java.util.Date;
 public class Message {
 
     private Date dateOfSending;
-    private String nameOfReceiver;
     private String contentOfMessage;
 
     public Message() {
     }
 
-    public Message(Date dateOfSending, String nameOfReciever, String contentOfMessage) {
+    public Message(Date dateOfSending, String contentOfMessage) {
         this.dateOfSending = dateOfSending;
-        this.nameOfReceiver = nameOfReciever;
         this.contentOfMessage = contentOfMessage;
     }
 
@@ -24,14 +22,6 @@ public class Message {
 
     public void setDateOfSending(Date dateOfSending) {
         this.dateOfSending = dateOfSending;
-    }
-
-    public String getNameOfReceiver() {
-        return nameOfReceiver;
-    }
-
-    public void setNameOfReceiver(String nameOfReceiver) {
-        this.nameOfReceiver = nameOfReceiver;
     }
 
     public String getContentOfMessage() {
@@ -46,7 +36,6 @@ public class Message {
     public String toString() {
         return "Message{" +
                 "dateOfSending=" + dateOfSending +
-                ", nameOfReciever='" + nameOfReceiver + '\'' +
                 ", contentOfMessage='" + contentOfMessage + '\'' +
                 '}';
     }

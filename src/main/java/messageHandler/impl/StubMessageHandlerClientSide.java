@@ -11,26 +11,25 @@ public class StubMessageHandlerClientSide implements MessageHandlerClientSide {
     StubMessageHandlerServerSide stubMessageHandlerServerSide = new StubMessageHandlerServerSide();
 
     @Override
-    public String getMessageFromClient() {
-        return convertMessage();
+    public void getMessageFromClient() {
+        Message message = convertMessage();
+        sendMessageToServer(message);
     }
 
-    private String convertMessage() {
+    // Stub for generation message.
+    private Message convertMessage() {
         System.out.println("Please enter you message!");
+        Message messageFromClient = new Message();
         Scanner scanner = new Scanner(System.in);
-        String messageFromClient = scanner.nextLine();
-        sendMessageToServer(messageFromClient, "Unnamed");
+        messageFromClient.setContentOfMessage(scanner.nextLine());
+        messageFromClient.setDateOfSending(new Date());
         scanner.close();
         return messageFromClient;
     }
 
 
     @Override
-    public void sendMessageToServer(String messageFromClient, String nameOfReceiver) {
-        Message messageForServer = new Message();
-        messageForServer.setDateOfSending(new Date());
-        messageForServer.setNameOfReceiver(nameOfReceiver);
-        messageForServer.setContentOfMessage(messageFromClient);
-        stubMessageHandlerServerSide.getMessageFromClient(messageForServer);
+    public void sendMessageToServer(Message messageFromClient) {
+        stubMessageHandlerServerSide.getMessageFromClient(messageFromClient);
     }
 }
