@@ -1,9 +1,9 @@
 package messageHandler.impl;
 
 import entity.Message;
-import messageHandler.MessageHandlerServerSide;
+import messageHandler.MessageReciever;
 
-public class StubMessageHandlerServerSide implements MessageHandlerServerSide {
+public class StubMessageReciever implements MessageReciever {
 
     @Override
     public void getMessageFromClient(Message messageFromClient) {
