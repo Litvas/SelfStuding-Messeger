@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class StubMessageGenerator implements MessageGenerator {
 
     // Stub for input message.
-    @Override
     public Message generateMessage() {
         System.out.println("Please enter you message!");
         Message messageFromClient = new Message();
