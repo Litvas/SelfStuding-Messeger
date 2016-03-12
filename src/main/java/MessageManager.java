@@ -1,20 +1,19 @@
 import entity.Message;
 import messageHandler.MessageGenerator;
-import messageHandler.MessageSender;
+import messageHandler.impl.MessageSender2opt;
 import messageHandler.impl.StubMessageGenerator;
-import messageHandler.impl.StubMessageSender;
 
-/**
- * Created by as on 06.03.16.
- */
+import java.io.IOException;
+
 public class MessageManager {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         MessageGenerator messageGenerator = new StubMessageGenerator();
-        MessageSender messageSender = new StubMessageSender();
+     //   MessageSender messageSender = new StubMessageSender();
+      MessageSender2opt fileMessageSender = new MessageSender2opt();
 
         Message message = messageGenerator.generateMessage();
-        messageSender.sendMessage(message);
+        fileMessageSender.sendMessage(message);
     }
 }

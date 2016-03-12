@@ -13,12 +13,12 @@ public class StubMessageGenerator implements MessageGenerator {
 
     // Stub for input message.
     public Message generateMessage() {
-        System.out.println("Please enter you message!");
+                System.out.println("Please enter you message!");
         Message messageFromClient = new Message();
         Scanner scanner = new Scanner(System.in);
         messageFromClient.setContentOfMessage(scanner.nextLine());
         messageFromClient.setDateOfSending(new Date());
-        scanner.close();
+   //     scanner.close();
         return messageFromClient;
     }
 }

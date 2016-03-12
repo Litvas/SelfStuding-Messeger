@@ -39,4 +39,26 @@ public class Message {
                 ", contentOfMessage='" + contentOfMessage + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Message message = (Message) o;
+
+        if (contentOfMessage != null ? !contentOfMessage.equals(message.contentOfMessage) : message.contentOfMessage != null)
+            return false;
+        if (dateOfSending != null ? !dateOfSending.equals(message.dateOfSending) : message.dateOfSending != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = dateOfSending != null ? dateOfSending.hashCode() : 0;
+        result = 31 * result + (contentOfMessage != null ? contentOfMessage.hashCode() : 0);
+        return result;
+    }
 }
